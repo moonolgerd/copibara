@@ -28,3 +28,19 @@ Feature: Todo
     Then I should see the todo in the list
       | Text             |
       | Something stupid |
+
+  Scenario: Complete Todo
+    Given I have a todo list
+    When I add a todo
+      | Text             |
+      | Something stupid |
+      | Hell no          |
+    And I complete the todo
+      | Text    |
+      | Hell no |
+    Then I should see the todo in the list
+      | Text             |
+      | Something stupid |
+    And I should see the completed todo in the list
+      | Text    |
+      | Hell no |

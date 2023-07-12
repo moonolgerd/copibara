@@ -94,6 +94,34 @@ public class StepDefinitions
         var isVisible = await _page.GetByPlaceholder("What needs to be done?").IsVisibleAsync();
         Assert.That(isVisible, Is.True);
     }
+
+
+    [When(@"I complete the todo")]
+    public async Task WhenIcompletethetodo(Table table)
+    {
+        var entries = table.CreateSet<TodoItem>();
+
+        foreach (var entry in entries)
+        {
+            await _page.GetByRole(AriaRole.Listitem).Filter(new() { HasText = entry.Text })
+                .GetByRole(AriaRole.Checkbox, new() { Name = "Toggle Todo" })
+                .CheckAsync();
+        }
+    }
+
+
+    [Then(@"I should see the completed todo in the list")]
+    public async Task ThenIshouldseethecompletedtodointhelist(Table table)
+    {
+        var entries = table.CreateSet<TodoItem>();
+
+        foreach (var entry in entries)
+        {
+            var isVisible = await _page.GetByText(entry.Text).IsVisibleAsync();
+            Assert.That(isVisible, Is.True);
+        }
+    }
+
 }
 
 public record TodoItem(string Text);

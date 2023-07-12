@@ -191,6 +191,60 @@ namespace copibara.tests
             }
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Complete Todo")]
+        public void CompleteTodo()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Complete Todo", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 32
+  this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 33
+    testRunner.Given("I have a todo list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Text"});
+                table6.AddRow(new string[] {
+                            "Something stupid"});
+                table6.AddRow(new string[] {
+                            "Hell no"});
+#line 34
+    testRunner.When("I add a todo", ((string)(null)), table6, "When ");
+#line hidden
+                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Text"});
+                table7.AddRow(new string[] {
+                            "Hell no"});
+#line 38
+    testRunner.And("I complete the todo", ((string)(null)), table7, "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Text"});
+                table8.AddRow(new string[] {
+                            "Something stupid"});
+#line 41
+    testRunner.Then("I should see the todo in the list", ((string)(null)), table8, "Then ");
+#line hidden
+                TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Text"});
+                table9.AddRow(new string[] {
+                            "Hell no"});
+#line 44
+    testRunner.And("I should see the completed todo in the list", ((string)(null)), table9, "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
