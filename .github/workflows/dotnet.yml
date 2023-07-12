@@ -19,7 +19,8 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 8.0.x
-      - uses: actions/cryptic-wizard/run-specflow-tests@v1.3.1
+      - name: Run SpecFlow Tests
+        uses: cryptic-wizard/run-specflow-tests@v1.3.2
         with:
           test-assembly-path: copibara.tests/bin/Debug/net8.0
           test-assembly-dll: copibara.tests.dll
